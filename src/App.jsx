@@ -1,11 +1,15 @@
+//import CampaignCard from "./components/CampaignCard";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 function App() {
-  return <>
-  <Home />;
-  <Navbar />
-  </>
+  return (
+    <>
+    <Navbar />
+      <Home />;
+      
+    </>
+  );
 }
 
 export default App;

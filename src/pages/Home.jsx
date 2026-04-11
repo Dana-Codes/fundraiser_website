@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import CampaignCard from "../components/CampaignCard";
+
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,6 +10,8 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+  
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-amber-50/30 to-white px-4 py-20 md:py-32">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -115,9 +119,40 @@ const Home = () => {
           <div className="w-1 h-2 bg-gray-400 rounded-full mt-2 animate-scroll"></div>
         </div>
       </div>
-
-    
+      
     </section>
+
+    {/* CAMPAIGNS SECTION */}
+<section className="py-16 px-6 max-w-6xl mx-auto">
+  <h2 className="text-3xl font-bold mb-10 text-center">
+    Ongoing Campaigns
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-8">
+    <CampaignCard
+      title="Help Build a School"
+      description="Support education for children in rural areas."
+      amount={500000}
+      goal={1000000}
+    />
+
+    <CampaignCard
+      title="Medical Support Fund"
+      description="Help provide urgent medical care for families."
+      amount={300000}
+      goal={800000}
+    />
+
+    <CampaignCard
+      title="Feed the Hungry"
+      description="Provide meals for communities in need."
+      amount={700000}
+      goal={1200000}
+    />
+  </div>
+</section>
+
+</>
   );
 };
 
