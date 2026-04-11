@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
 
-export default function CampaignCard({ id, title, description, amount, goal }) {
+export default function CampaignCard({ id, title, description, amount, goal, image }) {
   const progress = (amount / goal) * 100;
 
   return (
     <Link to={`/campaign/${id}`}>
 
-    <div className="bg-white shadow-md rounded-xl overflow-hidden">
+  <div className="bg-white shadow-md rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition duration-300">
       
       {/* IMAGE */}
-      <div className="h-48 bg-gray-300"></div>
+      <div className="h-48 overflow-hidden">
+  <img
+    src={image}
+    alt={title}
+    className="w-full h-full object-cover hover:scale-110 transition duration-300"
+  />
+</div>
 
       {/* CONTENT */}
       <div className="p-5">

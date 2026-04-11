@@ -134,6 +134,7 @@ const Home = () => {
   description={campaign.description}
   amount={campaign.amount}
   goal={campaign.goal}
+  image={campaign.image}
     />
   ))}
 </div>
