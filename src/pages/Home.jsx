@@ -13,7 +13,9 @@ const Home = () => {
   return (
     <>
   
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-orange-100 to-orange-200 px-4 py-20 md:py-32">
+    <section 
+    id="home"
+    className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-orange-100 to-orange-200 px-4 py-20 md:py-32 scroll-mt-24">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full  animate-pulse"></div>
@@ -124,7 +126,9 @@ const Home = () => {
     </section>
 
     {/* CAMPAIGNS SECTION */}
-<section className="py-16 px-6 max-w-6xl mx-auto">
+<section 
+ id="campaigns"
+className="py-16 px-6 max-w-6xl mx-auto">
   <div className="grid md:grid-cols-3 gap-8">
   {campaigns.map((campaign) => (
     <CampaignCard

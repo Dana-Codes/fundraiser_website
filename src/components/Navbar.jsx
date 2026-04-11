@@ -7,12 +7,17 @@ export default function Navbar() {
         <h1 className="text-xl font-bold">FundRaise</h1>
 
         {/* NAV LINKS */}
-        <ul className="hidden md:flex gap-8 text-gray-700">
-          <li className="hover:text-black cursor-pointer">Home</li>
-          <li className="hover:text-black cursor-pointer">About</li>
-          <li className="hover:text-black cursor-pointer">Campaigns</li>
-          <li className="hover:text-black cursor-pointer">Contact</li>
-        </ul>
+       <ul className="hidden md:flex gap-8 text-gray-700">
+  <li>
+    <a href="#home" className="hover:text-black">Home</a>
+  </li>
+  <li>
+    <a href="#campaigns" className="hover:text-black">Campaigns</a>
+  </li>
+  <li>
+    <a href="#contact" className="hover:text-black">Contact</a>
+  </li>
+</ul>
 
         {/* CTA BUTTON */}
         <button className="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition">
