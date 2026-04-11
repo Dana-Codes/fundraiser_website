@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function CampaignCard({ title, description, amount, goal }) {
+export default function CampaignCard({ id, title, description, amount, goal }) {
   const progress = (amount / goal) * 100;
 
   return (
-    <Link to={`/campaign/${title}`}>
+    <Link to={`/campaign/${id}`}>
 
     <div className="bg-white shadow-md rounded-xl overflow-hidden">
       

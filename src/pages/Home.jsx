@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CampaignCard from "../components/CampaignCard";
+import campaigns from "../data/campaigns";
 
 
 const Home = () => {
@@ -12,12 +13,12 @@ const Home = () => {
   return (
     <>
   
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-amber-50/30 to-white px-4 py-20 md:py-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-orange-100 to-orange-200 px-4 py-20 md:py-32">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-amber-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full  animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-50 w-96 h-96 bg-orange-700 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-100 rounded-full blur-3xl"></div>
         
         {/* Floating particles */}
         <div className="absolute top-20 left-[10%] text-4xl animate-float opacity-20">✨</div>
@@ -124,33 +125,18 @@ const Home = () => {
 
     {/* CAMPAIGNS SECTION */}
 <section className="py-16 px-6 max-w-6xl mx-auto">
-  <h2 className="text-3xl font-bold mb-10 text-center">
-    Ongoing Campaigns
-  </h2>
-
   <div className="grid md:grid-cols-3 gap-8">
-    
+  {campaigns.map((campaign) => (
     <CampaignCard
-      title="Help Build a School"
-      description="Support education for children in rural areas."
-      amount={500000}
-      goal={1000000}
+     key={campaign.id}
+  id={campaign.id}
+  title={campaign.title}
+  description={campaign.description}
+  amount={campaign.amount}
+  goal={campaign.goal}
     />
-
-    <CampaignCard
-      title="Medical Support Fund"
-      description="Help provide urgent medical care for families."
-      amount={300000}
-      goal={800000}
-    />
-
-    <CampaignCard
-      title="Feed the Hungry"
-      description="Provide meals for communities in need."
-      amount={700000}
-      goal={1200000}
-    />
-  </div>
+  ))}
+</div>
 </section>
 
 </>
