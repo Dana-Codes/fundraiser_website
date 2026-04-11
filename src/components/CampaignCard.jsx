@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function CampaignCard({ title, description, amount, goal }) {
   const progress = (amount / goal) * 100;
 
   return (
+    <Link to={`/campaign/${title}`}>
+
     <div className="bg-white shadow-md rounded-xl overflow-hidden">
       
       {/* IMAGE */}
@@ -29,5 +33,7 @@ export default function CampaignCard({ title, description, amount, goal }) {
         </button>
       </div>
     </div>
+
+    </Link>
   );
 }

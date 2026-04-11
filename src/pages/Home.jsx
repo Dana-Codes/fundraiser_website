@@ -129,6 +129,7 @@ const Home = () => {
   </h2>
 
   <div className="grid md:grid-cols-3 gap-8">
+    
     <CampaignCard
       title="Help Build a School"
       description="Support education for children in rural areas."
