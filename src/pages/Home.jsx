@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CampaignCard from "../components/CampaignCard";
 import campaigns from "../data/campaigns";
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -70,7 +70,7 @@ const Home = () => {
             className={`text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             Help us raise funds to{" "}
-            <span className="font-semibold text-gray-800">change lives</span> —
+            <span className="font-semibold text-gray-800">change lives</span>
             every contribution, big or small, creates a ripple of hope that
             reaches far beyond what you can imagine.
           </p>
@@ -99,7 +99,7 @@ const Home = () => {
               </span>
             </button>
 
-            <button className="text-gray-700 font-medium border border-gray-300 bg-white/70 backdrop-blur-sm px-7 py-3.5 rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 group">
+            <Link to="/learn-more"className="text-gray-700 font-medium border border-gray-300 bg-white/70 backdrop-blur-sm px-7 py-3.5 rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 group">
               <span>Learn more</span>
               <svg
                 className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
@@ -114,7 +114,7 @@ const Home = () => {
                   d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                 />
               </svg>
-            </button>
+            </Link>
           </div>
 
           {/* Trust indicators */}
@@ -201,39 +201,80 @@ const Home = () => {
       </section>
 
       {/* ABOUT SECTION */}
-     
-        <div className="relative z-10 max-w-6xl mx-auto">
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12 my-10" >
-          <div className={`inline-flex items-center gap-2 bg-amber-100/60 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className="text-center mb-12 my-10">
+          <div
+            className={`inline-flex items-center gap-2 bg-amber-100/60 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
-            <span className="text-xs  font-semibold tracking-wide text-amber-800 uppercase">Who We Are</span>
+            <span className="text-xs  font-semibold tracking-wide text-amber-800 uppercase">
+              Who We Are
+            </span>
           </div>
-          
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-amber-800 to-gray-900 bg-clip-text text-transparent transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            About DNC Foundation
+
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-amber-800 to-gray-900 bg-clip-text text-transparent transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
+            About Rafa Foundation
           </h2>
-          
-          <div className={`w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></div>
+
+          <div
+            className={`w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full transition-all duration-700 delay-200 ${isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`}
+          ></div>
         </div>
 
         {/* Main description with decorative quote marks */}
-        <div className={`relative max-w-3xl mx-auto text-center mb-16 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="absolute -top-6 -left-6 text-6xl text-amber-200/50 font-serif">"</div>
-          <div className="absolute -bottom-6 -right-6 text-6xl text-amber-200/50 font-serif">"</div>
-          
+        <div
+          className={`relative max-w-3xl mx-auto text-center mb-16 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+        >
+          <div className="absolute -top-6 -left-6 text-6xl text-amber-200/50 font-serif">
+            "
+          </div>
+          <div className="absolute -bottom-6 -right-6 text-6xl text-amber-200/50 font-serif">
+            "
+          </div>
+
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-            At <span className="font-semibold text-amber-700">DNC Foundation</span>, we are committed to making a difference by connecting
-            generous donors with impactful causes. Our mission is to empower
-            communities, support the less privileged, and create lasting change through
+            At{" "}
+            <span className="font-semibold text-amber-700">Rafa Foundation</span>
+            , we are committed to making a difference by connecting generous
+            donors with impactful causes. Our mission is to empower communities,
+            support the less privileged, and create lasting change through
             collective effort.
           </p>
         </div>
+
+        <div className="grid grid-flow-col justify-items-center">
+          <Link to="/about"
+            className="group relative bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl shadow-gray-300/30 hover:shadow-2xl 
+           hover:shadow-amber-200/50 transition-all duration-300 
+           flex items-center gap-3 hover:scale-105 active:scale-95"
+          >
+            <span>View More</span>
+            <svg
+              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60"></span>
+            </span>
+          </Link>
         </div>
-        
+      </div>
 
       {/* CAMPAIGNS SECTION */}
       <section id="campaigns" className="py-16 px-6 max-w-6xl mx-auto">

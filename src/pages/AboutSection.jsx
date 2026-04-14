@@ -54,7 +54,7 @@ export default function AboutSection() {
           </div>
           
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-amber-800 to-gray-900 bg-clip-text text-transparent transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            About DNC Foundation
+            About Rafa Foundation
           </h2>
           
           <div className={`w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></div>
@@ -66,7 +66,7 @@ export default function AboutSection() {
           <div className="absolute -bottom-6 -right-6 text-6xl text-amber-200/50 font-serif">"</div>
           
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-            At <span className="font-semibold text-amber-700">DNC Foundation</span>, we are committed to making a difference by connecting
+            At <span className="font-semibold text-amber-700">Rafa Foundation</span>, we are committed to making a difference by connecting
             generous donors with impactful causes. Our mission is to empower
             communities, support the less privileged, and create lasting change through
             collective effort.

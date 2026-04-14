@@ -5,7 +5,7 @@ export default function Footer() {
         
         {/* BRAND */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">DNC Foundation</h2>
+          <h2 className="text-2xl font-bold mb-4">Rafa Foundation</h2>
           <p className="text-gray-400">
             Empowering lives through donations and community support.
           </p>
@@ -26,7 +26,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-4">Contact</h3>
           <p className="text-gray-400">Email: support@dnc.com</p>
-          <p className="text-gray-400">Phone: +234 000 000 0000</p>
+          <p className="text-gray-400">Phone: +233 000 000 0000</p>
         </div>
 
       </div>

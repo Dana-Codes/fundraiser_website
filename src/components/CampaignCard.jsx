@@ -31,7 +31,7 @@ export default function CampaignCard({ id, title, description, amount, goal, ima
         </div>
 
         <p className="text-sm text-gray-700 mb-4">
-          ₦{amount} raised of ₦{goal}
+          ${amount} raised of ${goal}
         </p>
 
         <button className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
