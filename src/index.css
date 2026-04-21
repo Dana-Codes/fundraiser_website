@@ -71,7 +71,7 @@ html {
   animation: scroll-x 25s linear infinite;
 }
 
-//* Completely remove Google Translate UI */
+/* Completely remove Google Translate UI */
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 iframe.goog-te-banner-frame {
