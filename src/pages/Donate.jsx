@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 
 // EmailJS IDs
 const SERVICE_ID = "service_zshgayc";
-const TEMPLATE_ID = "template_3s478pl";
+const TEMPLATE_ID = "template_53ua3wu";
 const PUBLIC_KEY = "ejAkxTLV84M8ZTwjP"; // <-- Replace with your real public key
 
 export default function Donate() {

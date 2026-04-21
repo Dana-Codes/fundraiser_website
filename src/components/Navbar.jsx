@@ -5,9 +5,62 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [translateReady, setTranslateReady] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // 🔹 Google Translate INIT - Modified to not hide the element
+  useEffect(() => {
+    // Only add script once
+    if (document.getElementById("google-translate-script")) return;
+
+    const script = document.createElement("script");
+    script.id = "google-translate-script";
+    script.src =
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "en,fr,es,ar,zh",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        },
+        "google_translate_element"
+      );
+      setTranslateReady(true);
+    };
+
+    return () => {
+      // Cleanup
+      if (window.googleTranslateElementInit) {
+        delete window.googleTranslateElementInit;
+      }
+    };
+  }, []);
+
+  // 🔹 Change language - Enhanced version
+  const changeLanguage = (lang) => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+      setIsLangOpen(false);
+    } else {
+      // Fallback: wait a bit for Google to initialize
+      setTimeout(() => {
+        const select = document.querySelector(".goog-te-combo");
+        if (select) {
+          select.value = lang;
+          select.dispatchEvent(new Event("change"));
+        }
+      }, 500);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +120,17 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Google Translate Container - Now visible but styled to be subtle */}
+      <div 
+        id="google_translate_element" 
+        className="fixed top-0 right-0 z-[60] m-2 opacity-0 hover:opacity-100 transition-opacity duration-200"
+        style={{ 
+          pointerEvents: "auto",
+          transform: "scale(0.9)",
+          transformOrigin: "top right"
+        }}
+      ></div>
+
       {/* NAVBAR */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -113,6 +177,51 @@ export default function Navbar() {
                 )}
               </li>
             ))}
+
+            {/* 🌍 LANGUAGE DROPDOWN - Redesigned to avoid conflicts */}
+            <li className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="px-3 py-2 text-gray-600 hover:text-amber-600 flex items-center gap-1"
+              >
+                🌍 <span className="text-xs">▼</span>
+              </button>
+
+              {isLangOpen && (
+                <>
+                  <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={() => setIsLangOpen(false)}
+                  />
+                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-50 border border-gray-100">
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg"
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("fr")}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Français
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("es")}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Español
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("ar")}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-b-lg"
+                    >
+                      العربية
+                    </button>
+                  </div>
+                </>
+              )}
+            </li>
           </ul>
 
           {/* DONATE BUTTON */}
@@ -173,6 +282,37 @@ export default function Navbar() {
               )}
             </li>
           ))}
+
+          {/* 🌍 MOBILE LANGUAGE */}
+          <li className="border-t pt-4">
+            <p className="px-4 py-2 font-semibold text-gray-700">Language</p>
+            <div className="grid grid-cols-2 gap-2 px-4">
+              <button 
+                onClick={() => changeLanguage("en")} 
+                className="px-3 py-2 bg-gray-100 rounded-lg text-left hover:bg-gray-200"
+              >
+                English
+              </button>
+              <button 
+                onClick={() => changeLanguage("fr")} 
+                className="px-3 py-2 bg-gray-100 rounded-lg text-left hover:bg-gray-200"
+              >
+                Français
+              </button>
+              <button 
+                onClick={() => changeLanguage("es")} 
+                className="px-3 py-2 bg-gray-100 rounded-lg text-left hover:bg-gray-200"
+              >
+                Español
+              </button>
+              <button 
+                onClick={() => changeLanguage("ar")} 
+                className="px-3 py-2 bg-gray-100 rounded-lg text-left hover:bg-gray-200"
+              >
+                العربية
+              </button>
+            </div>
+          </li>
         </ul>
 
         <div className="p-6">
@@ -184,6 +324,40 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* CSS to style Google Translate widget */}
+      <style jsx>{`
+        /* Hide Google Translate's original toolbar popups */
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-balloon-frame,
+        .goog-te-menu-frame {
+          display: none !important;
+        }
+        
+        body {
+          top: 0px !important;
+        }
+        
+        /* Style the Google Translate select box */
+        .goog-te-combo {
+          background-color: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 0.5rem;
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+          cursor: pointer;
+        }
+        
+        .goog-te-combo:focus {
+          outline: none;
+          border-color: #d97706;
+        }
+        
+        /* Hide Google's default notification */
+        .skiptranslate iframe {
+          display: none;
+        }
+      `}</style>
     </>
   );
 }

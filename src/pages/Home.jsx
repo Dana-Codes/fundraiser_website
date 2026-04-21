@@ -11,6 +11,7 @@ import image3 from "../assets/images/for the slides/image3.jpeg"
 import image4 from "../assets/images/for the slides/image4.jpeg"
 import image5 from "../assets/images/for the slides/image5.jpeg"
 import image6 from "../assets/images/for the slides/image6.jpeg"
+import founder from "../assets/images/for the slides/founder.jpeg"
 
 
 const Home = () => {
@@ -89,7 +90,7 @@ const Home = () => {
           <div
             className={`flex flex-col sm:flex-row gap-5 justify-center items-center mt-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            <button className="group relative bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl shadow-gray-300/30 hover:shadow-2xl hover:shadow-amber-200/50 transition-all duration-300 flex items-center gap-3 hover:scale-105 active:scale-95">
+            <Link to="/donate/:id"className="group relative bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl shadow-gray-300/30 hover:shadow-2xl hover:shadow-amber-200/50 transition-all duration-300 flex items-center gap-3 hover:scale-105 active:scale-95">
               <span>Donate Now</span>
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
@@ -107,7 +108,7 @@ const Home = () => {
               <span className="absolute -top-1 -right-1 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60"></span>
               </span>
-            </button>
+            </Link>
 
             <Link to="/learn-more"className="text-gray-700 font-medium border border-gray-300 bg-white/70 backdrop-blur-sm px-7 py-3.5 rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 group">
               <span>Learn more</span>
@@ -226,10 +227,10 @@ const Home = () => {
     >
       {/* image slides */}
       {[ 
-        { img: image1, text: "Clean water drive launched 🌍" },
-        { img: image2, text: "Clean water drive launched 🌍" },
-        { img: image3, text: "Clean water drive launched 🌍" },
-        { img: image4, text: "Clean water drive launched 🌍" },
+        { img: image1, text: "latest highlight 🌍" },
+        { img: image2, text: "latest highlight 🌍"  },
+        { img: image3, text: "latest highlight 🌍" },
+        { img: image4, text: "latest highlight 🌍" },
        
       ].map((item, index) => (
         <div
@@ -247,6 +248,31 @@ const Home = () => {
     </div>
   </div>
 </section>
+
+{/* Founder section */}
+<div className=" bg-gray-50 flex items-center justify-center p-6">
+      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-lg grid md:grid-cols-2 overflow-hidden">
+        {/* Image Section */}
+        <div className="h-64 md:h-auto">
+          <img
+            src={founder}
+            alt="Founder"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Text Section */}
+        <div className="p-8 flex flex-col justify-center">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Meet the Founder
+          </h1>
+
+          <Link to="/WhatsappButton/" className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
+            Connect with Me
+          </Link>
+        </div>
+      </div>
+    </div>
 
 
       {/* ABOUT SECTION */}

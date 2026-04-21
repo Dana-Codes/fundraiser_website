@@ -4,9 +4,11 @@ import Footer from "./components/Footer";
 import CampaignDetails from "./pages/CampaignDetails";
 import AboutSection from "./pages/AboutSection";
 import Donate from "./pages/Donate";
+import WhatsappButton from "./components/WhatsappButton";
 import Contact from "./pages/Contact";
 import LearnMore from "./pages/LearnMore";
 import { Routes, Route } from "react-router-dom";
+
 
 
 
@@ -23,6 +25,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/learn-more" element={<LearnMore />} />
       </Routes>
+      <WhatsappButton/>
+     
       <Footer />
     </>
   );
