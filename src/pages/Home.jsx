@@ -2,6 +2,16 @@ import React, { useState, useEffect } from "react";
 import CampaignCard from "../components/CampaignCard";
 import campaigns from "../data/campaigns";
 import { Link } from "react-router-dom";
+import schoolImg from "../assets/images/school.jpg";
+import medicalImg from "../assets/images/medical.jpg";
+import foodImg from "../assets/images/food.jpg";
+import image1 from "../assets/images/for the slides/image1.jpeg"
+import image2 from "../assets/images/for the slides/image2.jpeg"
+import image3 from "../assets/images/for the slides/image3.jpeg"
+import image4 from "../assets/images/for the slides/image4.jpeg"
+import image5 from "../assets/images/for the slides/image5.jpeg"
+import image6 from "../assets/images/for the slides/image6.jpeg"
+
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -199,6 +209,45 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* NEWS / HOT UPDATES CAROUSEL */}
+<section className="relative bg-white/80 backdrop-blur-sm py-6 overflow-hidden border-y border-amber-100">
+  <div className="flex items-center gap-3 mb-2 px-4">
+    <span className="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+      Hot News
+    </span>
+    <h3 className="text-gray-800 font-semibold text-lg">Latest Highlights</h3>
+  </div>
+
+  {/* Scrolling wrapper */}
+  <div className="relative w-full overflow-hidden">
+    <div
+      className="flex animate-scroll-x gap-8 px-4"
+    >
+      {/* image slides */}
+      {[ 
+        { img: image1, text: "Clean water drive launched 🌍" },
+        { img: image2, text: "Clean water drive launched 🌍" },
+        { img: image3, text: "Clean water drive launched 🌍" },
+        { img: image4, text: "Clean water drive launched 🌍" },
+       
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 flex items-center bg-white rounded-xl shadow-md overflow-hidden w-[300px] min-w-[300px]"
+        >
+          <img
+            src={item.img}
+            alt=""
+            className="w-24 h-24 object-cover"
+          />
+          <p className="text-gray-700 text-sm px-3">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* ABOUT SECTION */}
 
